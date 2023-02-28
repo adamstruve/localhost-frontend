@@ -28,7 +28,6 @@ function Videos() {
           <NavLink
             to={{
               pathname: `/video/${video.id}`,
-              state: { video },
             }}
             style={{ cursor: "pointer" }}
           >

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 interface VideoData {
   title: string;
   filename: string;
+  thumbnail: string;
 }
 
 function Video() {
@@ -20,9 +21,12 @@ function Video() {
     <div>
       {videoData ? (
         <>
-          <h1>{videoData.title}</h1>
+          <h1 className="text-3xl font-bold underline">{videoData.title}</h1>
           <p>{videoData.filename}</p>
-          <video controls>
+          <video
+            controls
+            poster={`http://127.0.0.1:5000/videos/${videoData.thumbnail}`}
+          >
             <source
               src={`http://127.0.0.1:5000/videos/${videoData.filename}`}
             />
