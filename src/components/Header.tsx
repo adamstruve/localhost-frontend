@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Search from "./Search";
 
 function Header() {
   return (
@@ -13,7 +14,9 @@ function Header() {
           localtube
         </NavLink>
       </div>
-      <div className="flex items-center">Search Goes Here</div>
+      <div className="flex items-center">
+        <Search />
+      </div>
     </header>
   );
 }
