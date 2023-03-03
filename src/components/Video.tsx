@@ -21,16 +21,21 @@ function Video() {
     <div>
       {videoData ? (
         <>
+          <div className="flex justify-between items-center">
+            <div className="w-3/4 mx-auto">
+              <video
+                className="w-auto"
+                controls
+                autoPlay
+                poster={`http://127.0.0.1:5000/videos/${videoData.thumbnail}`}
+              >
+                <source
+                  src={`http://127.0.0.1:5000/videos/${videoData.filename}`}
+                />
+              </video>
+            </div>
+          </div>
           <h1 className="text-3xl font-bold underline">{videoData.title}</h1>
-          <p>{videoData.filename}</p>
-          <video
-            controls
-            poster={`http://127.0.0.1:5000/videos/${videoData.thumbnail}`}
-          >
-            <source
-              src={`http://127.0.0.1:5000/videos/${videoData.filename}`}
-            />
-          </video>
         </>
       ) : (
         <p>Loading...</p>
