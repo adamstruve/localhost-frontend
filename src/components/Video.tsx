@@ -35,7 +35,9 @@ function Video() {
               </video>
             </div>
           </div>
-          <h1 className="text-3xl font-bold underline">{videoData.title}</h1>
+          <h1 className="text-3xl font-bold text-center mt-5">
+            {videoData.title}
+          </h1>
         </>
       ) : (
         <p>Loading...</p>
