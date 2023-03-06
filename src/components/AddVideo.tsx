@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 
 function AddVideo() {
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
-  const handleUrlChange = (event) => {
+  const handleUrlChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUrl(event.target.value);
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = { url };
     try {
@@ -19,15 +20,27 @@ function AddVideo() {
         body: JSON.stringify(data),
       });
       console.log(response);
-      // Do something with the response, like show a success message
+      // Show success message
+      setMessage("Video was added successfully.");
+      setUrl("");
     } catch (error) {
       console.error(error);
-      // Handle the error, like show an error message
+      // Show error message
+      setMessage("An error occurred while adding the video.");
     }
   };
 
   return (
     <div className="mx-auto w-1/2">
+      {message && (
+        <div
+          className={`${
+            message.includes("success") ? "bg-green-200" : "bg-red-200"
+          } text-center p-2 mb-5`}
+        >
+          {message}
+        </div>
+      )}
       <form className="flex justify-center" onSubmit={handleFormSubmit}>
         <input
           type="text"

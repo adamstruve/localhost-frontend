@@ -24,7 +24,7 @@ function Video() {
           <div className="flex justify-between items-center">
             <div className="w-3/4 mx-auto">
               <video
-                className="w-auto"
+                className="w-auto mx-auto"
                 controls
                 autoPlay
                 poster={`http://127.0.0.1:5000/videos/${videoData.thumbnail}`}
