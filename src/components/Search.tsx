@@ -5,7 +5,9 @@ function Search() {
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const searchQuery = event.currentTarget.elements["search"].value;
+    const searchQuery = (event.currentTarget.elements as Record<string, any>)[
+      "search"
+    ].value;
     navigate(`/search?q=${searchQuery}`);
   };
 
@@ -14,7 +16,7 @@ function Search() {
       <input
         type="text"
         name="search"
-        className="border border-stone-900 rounded p-2 mr-2"
+        className="border border-stone-900 rounded p-2 mr-2 w-32 md:w-auto"
       />
       <button type="submit" className="bg-stone-900 text-white rounded p-2">
         Search

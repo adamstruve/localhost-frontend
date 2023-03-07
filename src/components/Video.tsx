@@ -22,9 +22,9 @@ function Video() {
       {videoData ? (
         <>
           <div className="flex justify-between items-center">
-            <div className="w-3/4 mx-auto">
+            <div className="aspect-w-16 aspect-h-9 md:max-h-720 md:h-screen mx-auto">
               <video
-                className="w-auto mx-auto"
+                className="object-cover w-full h-full"
                 controls
                 autoPlay
                 poster={`http://127.0.0.1:5000/videos/${videoData.thumbnail}`}
@@ -35,7 +35,7 @@ function Video() {
               </video>
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-center mt-5">
+          <h1 className="text-lg md:text-3xl font-bold text-center mt-5">
             {videoData.title}
           </h1>
         </>
